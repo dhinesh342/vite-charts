@@ -3,31 +3,22 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+
 function App() {
-  const [count, setCount] = useState(0)
+  const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 300, pv: 2400, amt: 2400},
+    {name: 'Page C', uv: 300, pv: 2400, amt: 2400},{name: 'Page D', uv: 200, pv: 2400, amt: 2400},
+    {name: 'Page E', uv: 100, pv: 2400, amt: 2400},{name: 'Page F', uv: 300, pv: 2400, amt: 2400}
+];
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <LineChart width={600} height={300} data={data}>
+    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+    <CartesianGrid stroke="#ccc" />
+    <XAxis dataKey="name" />
+    <YAxis />
+  </LineChart>
     </>
   )
 }
