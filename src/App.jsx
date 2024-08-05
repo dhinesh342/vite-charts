@@ -14,10 +14,10 @@ function App() {
   return (
     <>
       <LineChart width={600} height={300} data={data}>
-    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+    <Line type="monotone"  dataKey="uv" stroke="#8884d8"  strokeWidth={5}/>
     <CartesianGrid stroke="#ccc" />
-    <XAxis dataKey="name" />
-    <YAxis />
+    <XAxis dataKey="name" reversed="true" />
+    <YAxis orientation='right' />
   </LineChart>
     </>
   )
